@@ -1,16 +1,14 @@
 import DS from 'ember-data';
 
-const { Model, attr, belongsTo, hasMany } = DS;
+export default DS.Model.extend({
+  createdAt:      DS.attr('date'),
+  discs:          DS.attr('number'),
+  largeArtwork:   DS.attr('string'),
+  mediumArtwork:  DS.attr('string'),
+  name:           DS.attr('string'),
+  smallArtwork:   DS.attr('string'),
+  tracks:         DS.attr('number'),
 
-export default Model.extend({
-  createdAt:      attr('date'),
-  discs:          attr('number'),
-  largeArtwork:   attr(),
-  mediumArtwork:  attr(),
-  name:           attr('string'),
-  smallArtwork:   attr(),
-  tracks:         attr('number'),
-
-  artist:         belongsTo('artist'),
-  songs:          hasMany('songs')
+  artist:         DS.belongsTo('artist', { async: false }),
+  songs:          DS.hasMany('songs', { async: false })
 });

@@ -4,6 +4,7 @@
 const EventEmitter  = require('events').EventEmitter;
 const restify       = require('restify');
 const UI            = require('ember-cli/lib/ui');
+const url           = require('url');
 const ws            = require('ws');
 
 class Pusher extends EventEmitter {
@@ -219,13 +220,13 @@ class Playlist {
             type:             'albums',
             id:               result.collectionId,
             attributes: {
-              name:           result.collectionName,
-              createdAt:      result.releaseDate,
-              largeArtwork:   result.artworkUrl100,
-              mediumArtwork:  result.artworkUrl60,
-              smallArtwork:   result.artworkUrl30,
-              discs:          result.discCount,
-              tracks:         result.trackCount
+              name:             result.collectionName,
+              'created-at':     result.releaseDate,
+              'large-artwork':  result.artworkUrl100,
+              'medium-artwork': result.artworkUrl60,
+              'small-artwork':  result.artworkUrl30,
+              discs:            result.discCount,
+              tracks:           result.trackCount
             },
             relationships: {
               artist: {
@@ -257,12 +258,12 @@ class Playlist {
             type:             'songs',
             id:               result.trackId,
             attributes: {
-              name:           result.trackName,
-              genre:          result.primaryGenreName,
-              createdAt:      result.releaseDate,
-              time:           result.trackTimeMillis,
-              disc:           result.discNumber,
-              track:          result.trackNumber
+              'created-at':     result.releaseDate,
+              name:             result.trackName,
+              genre:            result.primaryGenreName,
+              time:             result.trackTimeMillis,
+              disc:             result.discNumber,
+              track:            result.trackNumber
             },
             relationships: {
               artist: {

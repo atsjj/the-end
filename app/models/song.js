@@ -1,15 +1,13 @@
 import DS from 'ember-data';
 
-const { Model, attr, belongsTo } = DS;
+export default DS.Model.extend({
+  createdAt:  DS.attr('date'),
+  disc:       DS.attr('number'),
+  genre:      DS.attr('string'),
+  name:       DS.attr('string'),
+  time:       DS.attr('number'),
+  track:      DS.attr('number'),
 
-export default Model.extend({
-  createdAt:  attr('date'),
-  disc:       attr('number'),
-  genre:      attr('string'),
-  name:       attr('string'),
-  time:       attr('number'),
-  track:      attr('number'),
-
-  album:      belongsTo('album'),
-  artist:     belongsTo('artist')
+  album:      DS.belongsTo('album', { async: false }),
+  artist:     DS.belongsTo('artist', { async: false })
 });

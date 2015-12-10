@@ -1,6 +1,7 @@
 {
   "name": "the-end",
   "dependencies": {
+    "bootstrap": "4.0.0-alpha.2",
     "ember": "2.2.0",
     "ember-cli-shims": "0.0.6",
     "ember-cli-test-loader": "0.2.1",

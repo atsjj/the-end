@@ -1,11 +1,9 @@
 import DS from 'ember-data';
 
-const { Model, attr, hasMany } = DS;
+export default DS.Model.extend({
+  genre:  DS.attr('string'),
+  name:   DS.attr('string'),
 
-export default Model.extend({
-  genre:  attr('string'),
-  name:   attr('string'),
-
-  albums: hasMany('albums'),
-  songs:  hasMany('songs')
+  albums: DS.hasMany('albums', { async: false }),
+  songs:  DS.hasMany('songs', { async: false })
 });
